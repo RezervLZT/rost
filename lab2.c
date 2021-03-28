@@ -2,16 +2,18 @@
 #include <math.h>
 int main()
 {
-double x;
-printf("Vvedute x -> [-1;1]");
-scanf ("%lf", &x);
-if (x=>-1.0 && x<=1.0)
+  double x,z;
+  printf("Vvedute x -> [-3;0]");
+  scanf ("%lf", &x);
+  if (x>=-10.0 && x<=0.0)
 {
-float y= 1.0\tan(x)+acos(pow(2,x));
-double z= sgn(y);
-prinf ("y(x)= %lf\n z(y)= %lf\n", y,z);
+    double  y= (1.0/tan(x))+acos(pow(2,x));
+    if (y<0) z=-1;
+    if (y==0) z=0;
+    if (y>0) z=1;
+    printf ("y(x)= %lf\n z(y)= %lf\n", y,z);
 }
-else
-prinf ("Zalupka");
-return 0;
+  else
+    printf ("Zalupka\n");
+  return 0;
 }
