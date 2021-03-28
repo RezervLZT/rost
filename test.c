@@ -1,17 +1,20 @@
-# include < stdio .h >
-2 # include < math .h >
-3 int main ()
+#include <stdio.h>
+#include <math.h>
+int main()
 {
-double x ;
-printf (" Enter x { -1.0 <= x <= 1.0 } -> ") ;
-scanf ("% lf " , & x ) ;
-if ( -1.0 <= x && x <= 1.0)
-{
- double y = x * sqrt (1.0 + x * x ) + asin ( x ) ;
-double z = exp ( y ) * sqrt (1.0 + exp (2.0 * y ) ) ;
- printf (" y ( x ) = % lf \ nz ( y ) = % lf \ n " , y , z ) ;
- }
- else
- printf (" x value is incorrect !\ n ") ;
- return 0;
- }
+  float f, x, h;
+  printf ("Vvedute shag -> h:");
+  scanf ("%f", &h);
+  printf ("\tx\t f(x)\n");
+  printf ("_____________________________\n");
+  do {
+    if (x>=0 && x<=1)
+      f=sqrt(x+1)+sqrt(x)-1/2;
+    if (x>1 && x<=2)
+      f=pow(2.7182,-x-1/x);
+    printf("\tx%6.1f  f(x)%6.3f\n", x, f);
+    x+=h;
+     }
+  while (x>=0 && x<2.1);
+  return 0;
+}
