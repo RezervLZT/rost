@@ -1,19 +1,23 @@
 #include <stdio.h>
 #include <math.h>
+double sgn(double y)
+{
+  if (y<0)
+      return -1;
+  if (y>0)
+      return 1;
+  
+      return 0;
+
+}
 int main()
 {
-  double x,z;
-  printf("Vvedute x -> [-3;0]");
+  double x;
+  printf("Vvedute x -> [-2;0]");
   scanf ("%lf", &x);
-  if (x>=-3.0 && x<=0.0)
+  if (x>=-2.0 && x<=0.0)
   {
-    double  y= (1.0/tan(x))+acos(pow(2,x));
-    if (y<0) z=-1;
-    if (y==0) z=0;
-    if (y>0) z=1;
-    printf ("y(x)= %lf\n z(y)= %lf\n", y,z);
+      double  y= (1.0/tan(M_PI*x))+acos(pow(2,x));
+      printf ("y(x)= %lf\n z(y)= %lf\n", y, sgn(y));
   }
-  else
-    printf ("Zalupka\n");
-  return 0;
 }
