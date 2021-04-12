@@ -2,19 +2,22 @@
 #include <math.h>
 int main()
 {
-    float f, h, i, x;
+    double f, h, x, q;
+    int i;
     printf("Vvedute shag -> h:");
-    scanf("%f", &h);
+    scanf("%lf", &h);
     printf("\tx\t f(x)\n");
     printf("_____________________________\n");
-    for (i = 0; i < 2.0; i += h)
+    q = 2.0 / h;
+    for (i = 0; i <= q; i++)
     {
-        if (x >= 0 && x <= 1)
-            f = (sqrt(x + 1) - sqrt(x) - (1 / 2));
-        if (x > 1 && x < 2.0)
-            f = (exp(- x - (1 / x)));
-        printf("\tx%6.8f  f(x)%6.8f\n", x, f);
-        x += h;
+        x = i * h;
+        if (x >= 0.0 && x <= 1.0)
+            f = sqrt(x + 1.0) - sqrt(x) - 0.5;
+        else
+            f = (exp(- x - (1.0 / x)));
+        printf("\tx%6.8lf  f(x)%6.8lf\n", x, f);
+
     }
     return 0;
 }
