@@ -1,45 +1,49 @@
 #include <stdio.h>
 #include <math.h>
-double f(double x)
-{
-  return (sqrt(x/2+1)+sqrt(x/2)-1/2 );
-}
-double f1(double x)
-{
-  return (pow(2.7182,-(x/2)-1/(x/2)));
-}
 int main()
 {
-double a, b, h, s;
-int n,i;
-printf ("Vvedute a ->");
-scanf("%lf", &a);
-printf ("Vvedute b ->");
-scanf ("%lf", &b);
-printf ("Vvedute shag n ->");
-scanf ("%d", &n);
-h=(b-a)/n;
-printf ("Nahunaem reshat`\n");
-if (a>=0 && b<=1)
-{
-s=(f(a)+f(b)/2);
-for (int i = 1; i<=n; i++);
-{
-s+=f(a+i*h);
-}
-double I=s*h;
-printf("I=%lf\n", I);
-}
-else
-if (a>1 && b<=2)
-{
-  s=(f1(a)+f1(b)/2);
-  for (int i = 1; i<=n; i++);
-  {
-  s+=f1(a+i*h);
-}
-double I=s*h;
-printf("I=%lf\n", I);
-}
+	double f, h, x, sum, sum2, n = 4, e, n2 = 0, x1, f2;
+	int i;
+	printf("Vvedute tochnost` -> e:\n");
+	scanf ("%le", &e);
+	printf("\tx\t f(x)\n");
+	printf("_____________________________\n");
 
+	do
+	{
+	for (i = 1; i <= n; i++)
+	{
+		h = 2.0 / n;
+		x = (i * h - (h /2.0));
+		if (x >= 0.0 && x <= 1.0)
+			f = sqrt(x + 1.0) - sqrt(x) - 0.5;
+		else
+			f = (exp(- x - (1.0 / x)));
+		sum +=  h * f;
+		printf("\tx%.3lf  f(x)%.3lf\n", x, f);
+	}
+	printf("\tx\t f(x)\n");
+	printf("_____________________________\n");
+	for (i = 1; i <= (2.0 * n); i++)
+	{
+		h = 2.0 / ( 2.0 * n );
+		x1 = (i * h - (h /2));
+		if (x1 >= 0.0 && x1 <= 1.0)
+			f2 = sqrt(x1 + 1.0) - sqrt(x1) - 0.5;
+		else
+			f2 = (exp(- x1 - (1.0 / x1)));
+		sum2 += (h * f2);
+		printf("\tx%.3lf  f(x)%.3lf\n", x1, f2);
+	}
+	printf("summa -> %.3lf\n", sum);
+	printf("summa2 -> %.3lf\n", sum2);
+    n2 = fabs(sum2 - sum) / 3.0 ;
+	if (n2 < e)
+		return 0;
+	else
+		n = n * 2.0;
+}
+while (n2 > e);
+printf("n -> %lf\n", n2);
+return 0 ;
 }
