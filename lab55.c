@@ -1,18 +1,29 @@
 #include <stdio.h>
 #include <math.h>
-unsigned int fr(unsigned int n)
+unsigned int fr(unsigned int a)
 {
-unsigned k;
-if (fr(n) % 10 >= 0)
-k +=1;
-fr(n / 10);
-return 1;
+    if (a)
+        return 1 + fr(a / 10 );
+    else
+        return 0;
 }
 int main ()
-{
-unsigned int n;
-printf("Введите число\n n ->");
-scanf("%u", &n );
-printf ("Количество цифр -> %u\n", fr(n));
-return 0;
-}
+    {
+        {
+            unsigned int a;
+            printf("Введите число\n n ->");
+            scanf("%u", &a );
+            printf("Количество цифр -> %u\n", fr(a));
+        }
+        unsigned long int k1 = 0, a;
+        printf("Vvedute a po ysloviy \n a ->");
+        scanf("%lu", &a );
+        while (a > 0)
+        {
+            if (a % 10 >= 0)
+                k1 += 1;
+            a = a / 10;
+        }
+        printf("kol-vo chisel -> %lu\n", k1);
+        return 0;
+    }
