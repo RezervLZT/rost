@@ -2,10 +2,8 @@
 #include <math.h>
 unsigned int fr(unsigned int a)
 {
-    if (a)
-        return 1 + fr(a / 10 );
-    else
-        return 0;
+    return a? 1 + fr(a / 10 ):0;
+    return 0;
 }
 int main ()
     {
