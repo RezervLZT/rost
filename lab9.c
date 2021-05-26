@@ -1,4 +1,4 @@
-gcc #include <math.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,7 +6,7 @@ int main()
 {
     char str1[] = "theskyisturningredreturntopower";
     char str2[];
-  //  char *rez = str1;
+    char *rez = str1;
     int f = 0;
     int g = 1;
     int f, p, g, d;

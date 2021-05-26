@@ -51,7 +51,7 @@ void proizved(int n, int m, int a[][m], int b[][n], int c[n][n])
 
 int main()
 {
-    srand(time(NULL));
+    //srand(time(NULL));
     int n, m;
     printf("n -> ");
     scanf("%d", &n);
@@ -66,6 +66,6 @@ int main()
     print2(n, m, b);
     printf("proizvedenie\n");
     proizved(n, m, a, b, c);
-    print2(n, m, c);
+    print2(n, n, c);
     return 0;
 }
